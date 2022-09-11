@@ -10,10 +10,7 @@ With those three out of the way, welcome to my repository of maze generation.
 
 The simple goal of these mazes is to go from the entrance at the top left to the exit at the bottom right by traveling through the mess of directions the maze makes you go through.
 
-There
-
-
-are three files (2d, 3d, and 4d maze generator) that are designed to create mazes based on the desired dimension size. 
+There are three files (2d, 3d, and 4d maze generator) that are designed to create mazes based on the desired dimension size. 
 
 To use these files, download or copy the .py files in the "MazeGenerators" folder and run them on whatever app you use to run python files.
 
