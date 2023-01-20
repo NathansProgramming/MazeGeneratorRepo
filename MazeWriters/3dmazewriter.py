@@ -1,7 +1,8 @@
 import random
-# if your computer or device can't run colorama, just delete these two lines and remove "FORE.<color>" in print_maze.
-from colorama import init, Fore
-init()
+
+
+# this text controls what the file name is. Default is 'MazeTrial3D.txt'
+file = 'MazeTrial3D.txt'
 
 # this text controls what you see. Default is 'C', '#', 'U', 'D'.
 cell = 'C'
@@ -33,20 +34,22 @@ def make_3d_maze(ln, wd, dp):
 
 
 def print_maze(maze, ln, wd, dp):
-    """Prints the maze with colors (or not) in an organized and easy to read way."""
-    for z in range(0, dp):  # for as many boards as there are in the maze
-        for y in range(0, wd):  # for as many lines as there are in the board
-            for x in range(0, ln):  # for as many characters as there are in the line
-                if maze[z][y][x] == cell:  # if the character is a cell, make it green.
-                    print(Fore.GREEN, f'{maze[z][y][x]}', end="")
-                elif maze[z][y][x] == wall:  # if the character is a wall, make it red.
-                    print(Fore.RED, f'{maze[z][y][x]}', end="")
-                elif maze[z][y][x] == up:  # if the character is an up, make it blue.
-                    print(Fore.BLUE, f'{maze[z][y][x]}', end="")
-                else:  # if the character is a down or an invalid character is shown, make it yellow.
-                    print(Fore.YELLOW, f'{maze[z][y][x]}', end="")
-            print('')
-        print('\n')
+    with open(file, 'a') as draw:
+        draw.write("\n")
+        """Prints the maze with colors (or not) in an organized and easy to read way."""
+        for z in range(0, dp):  # for as many boards as there are in the maze
+            for y in range(0, wd):  # for as many lines as there are in the board
+                for x in range(0, ln):  # for as many characters as there are in the line
+                    if maze[z][y][x] == cell:  # if the character is a cell, make it a cell.
+                        draw.write(cell + " ")
+                    elif maze[z][y][x] == wall:  # if the character is a wall, make it a wall.
+                        draw.write(wall + " ")
+                    elif maze[z][y][x] == up:  # if the character is an up, make it an up.
+                        draw.write(up + " ")
+                    else:  # if the character is a down or an invalid character is shown, make it a down.
+                        draw.write(down + " ")
+                draw.write("\n")
+            draw.write("\n")
 
 
 the_maze = make_3d_maze(length, width, depth)  # create the maze based on the length, width and depth specified.
